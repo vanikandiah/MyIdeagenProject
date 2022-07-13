@@ -1,0 +1,6 @@
+E:\MoveDocuments\MyCalculator\MyCalculator\bin\Debug\MyCalculator.exe.config
+E:\MoveDocuments\MyCalculator\MyCalculator\bin\Debug\MyCalculator.exe
+E:\MoveDocuments\MyCalculator\MyCalculator\bin\Debug\MyCalculator.pdb
+E:\MoveDocuments\MyCalculator\MyCalculator\obj\Debug\MyCalculator.csprojResolveAssemblyReference.cache
+E:\MoveDocuments\MyCalculator\MyCalculator\obj\Debug\MyCalculator.exe
+E:\MoveDocuments\MyCalculator\MyCalculator\obj\Debug\MyCalculator.pdb
