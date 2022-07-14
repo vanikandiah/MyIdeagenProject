@@ -26,15 +26,14 @@ namespace MyCalculator
                 Console.WriteLine("The answer is: {0}", computedValue.ToString());
                 Console.Write("Enter value OR Press Enter to exit!: ");
                 val = Console.ReadLine();
-            }
-            
-            if (Console.ReadKey().Key == ConsoleKey.Enter)
-            {
-                Console.WriteLine("User pressed \"Enter\"");
-            }
-
+            }            
 
         }
+        /// <summary>
+        /// This is the main method to calculate the formula
+        /// </summary>
+        /// <param name="sum">a text that consists numbers and operators is always separated by spaces</param>
+        /// <returns></returns>
         public static double Calculate(string sum)
         {
             //Your code starts here 
@@ -57,10 +56,10 @@ namespace MyCalculator
                         isNestedBracket = CheckForNestedBracket(ref equation);
                     }
 
-                    //first check for multiplication or Division
+                    //Next check for multiplication or Division
                     reCalculate = PerformSubCalculation(ref equation, true);
 
-                    //second check for addition or substraction
+                    //Finally check for addition or substraction
                     if (!reCalculate)
                     {
                         reCalculate = PerformSubCalculation(ref equation, false);
@@ -77,7 +76,11 @@ namespace MyCalculator
             
             return dblAnswer;
         }
-
+        /// <summary>
+        /// This function check for brackets. If bracket is found, this is computed in priority 
+        /// </summary>
+        /// <param name="equation">an array of string</param>
+        /// <returns></returns>
         private static bool CheckForNestedBracket(ref string[] equation)
         {
             List<int> openingBracketIndex = new List<int>();
@@ -107,7 +110,12 @@ namespace MyCalculator
             }
             return isNestedBracket;
         }
-
+        /// <summary>
+        /// This function basically compute the values provided in the brackets
+        /// </summary>
+        /// <param name="openingBracketIndex">starting element index</param>
+        /// <param name="closingBracketIndex">ending element index</param>
+        /// <param name="equationList">an array of string</param>
         private static void ComputeNestedValue(int openingBracketIndex, int closingBracketIndex, ref string[] equationList)
         {
             string newEquation = "";
@@ -141,7 +149,12 @@ namespace MyCalculator
             }
 
         }
-
+        /// <summary>
+        /// This function compute the value by using operators such as *, /, +, -
+        /// </summary>
+        /// <param name="equation">an array of string</param>
+        /// <param name="isMultiplyOrDivision">true or false flag to indicate the compute operators</param>
+        /// <returns>true or false to indicate if recalculation is required or not</returns>
         private static bool PerformSubCalculation(ref string[] equation, bool isMultiplyOrDivision)
         {
             char[] minorSymbols = { '+', '-' };
@@ -174,7 +187,13 @@ namespace MyCalculator
 
             return reCalculate;
         }
-
+        /// <summary>
+        /// This is the main function that performs multiplication, division, addition and substraction
+        /// </summary>
+        /// <param name="value1">1st digit</param>
+        /// <param name="value2">2nd digit</param>
+        /// <param name="equationSymbol">operator (*, /, +, -)</param>
+        /// <returns>computed value in numbers</returns>
         private static double CalculateEquation(string value1, string value2, string equationSymbol)
         {
             double dblValue1;

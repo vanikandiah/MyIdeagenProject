@@ -1,0 +1,5 @@
+E:\MoveDocuments\MyCalculator\MyCalculator\bin\Release\MyCalculator.exe.config
+E:\MoveDocuments\MyCalculator\MyCalculator\bin\Release\MyCalculator.exe
+E:\MoveDocuments\MyCalculator\MyCalculator\bin\Release\MyCalculator.pdb
+E:\MoveDocuments\MyCalculator\MyCalculator\obj\Release\MyCalculator.exe
+E:\MoveDocuments\MyCalculator\MyCalculator\obj\Release\MyCalculator.pdb
