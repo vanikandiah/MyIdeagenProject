@@ -41,6 +41,7 @@ namespace MyCalculator
             double dblAnswer = 0.0;
             bool reCalculate = false;
             string[] equation = sum.Split(' ');
+            bool isBracketAvailable = false;
             try
             {
                 if (equation.Length == 3)
@@ -49,12 +50,23 @@ namespace MyCalculator
                 }
                 else
                 {
-                    //first check for brackets and compute the formulas in the bracket
-                    bool isNestedBracket = CheckForNestedBracket(ref equation);
-                    while (isNestedBracket)
+                    //This is to ensure that we did not miss the multiple occurance of brackets at different parts of the text
+                    int count = equation.Where(val => val == "(").Count();
+                    isBracketAvailable = (count > 0 ? true : false);
+
+                    while (isBracketAvailable)
                     {
-                        isNestedBracket = CheckForNestedBracket(ref equation);
-                    }
+                        //first check for brackets and compute the formulas in the bracket
+                        bool isNestedBracket = CheckForNestedBracket(ref equation);
+
+                        while (isNestedBracket)
+                        {
+                            isNestedBracket = CheckForNestedBracket(ref equation);
+                        }
+
+                        count = equation.Where(val => val == "(").Count();
+                        isBracketAvailable = (count > 0 ? true : false);
+                    }                    
 
                     //Next check for multiplication or Division
                     reCalculate = PerformSubCalculation(ref equation, true);
